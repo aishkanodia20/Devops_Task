@@ -16,15 +16,15 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: aish018
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: aish018  # Your Docker Hub username
+          password: ${{ secrets.DOCKERHUB_TOKEN }}  # Ensure this secret is set
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: .  # Change this if your Dockerfile is in a different location
           push: true
-          tags: aish018/aish_task:latest
+          tags: aish018/aish_task:latest  # Change 'aish_task' if you want a different image name
 
       - name: Cleanup
         run: echo "Build and push completed successfully."
